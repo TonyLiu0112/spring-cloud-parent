@@ -1,0 +1,17 @@
+server:
+  port: 8761
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+spring:
+  application:
+    name: discovery
+security:
+  user:
+    name: admin
+    password: 123456
