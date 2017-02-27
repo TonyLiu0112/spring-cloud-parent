@@ -1,16 +1,11 @@
 package com.tony.springcloud;
 
-import com.tony.springcloud.config.CustomerRandomBalance;
-import com.tony.springcloud.config.ExcludeFromComponentScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -22,8 +17,9 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-@RibbonClient(name = "microservice-customer", configuration = CustomerRandomBalance.class)
-@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = ExcludeFromComponentScan.class)})
+// 不推荐使用此方式，当指定某一种服务的负载均衡方式之后，如果一不小心，就容易影响别的服务的负载均衡方式，推荐使用配置文件的方式来配置
+//@RibbonClient(name = "microservice-customer", configuration = CustomerRandomBalance.class)
+//@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = ExcludeFromComponentScan.class)})
 public class MovieApplication {
 
     private final RestTemplate restTemplate;
