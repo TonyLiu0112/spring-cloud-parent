@@ -10,3 +10,14 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+# disable eureka server,it will get register list from 'listOfServers'
+ribbon:
+  eureka:
+   enabled: false
+microservice-customer:
+  ribbon:
+    listOfServers: http://localhost:8080
+microservice-customer2:
+  ribbon:
+    listOfServers: http://localhost:8085,http://localhost:8086
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
