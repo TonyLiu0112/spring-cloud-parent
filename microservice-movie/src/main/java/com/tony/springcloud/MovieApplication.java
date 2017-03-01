@@ -1,9 +1,12 @@
 package com.tony.springcloud;
 
+import com.tony.springcloud.dto.User;
+import com.tony.springcloud.feign.Customer2Client;
 import com.tony.springcloud.feign.CustomerClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -33,11 +36,14 @@ public class MovieApplication {
 
     private final CustomerClient customerClient;
 
+    private final Customer2Client customer2Client;
+
     @Autowired
-    public MovieApplication(RestTemplate restTemplate, LoadBalancerClient loadBalancerClient, CustomerClient customerClient) {
+    public MovieApplication(RestTemplate restTemplate, LoadBalancerClient loadBalancerClient, CustomerClient customerClient, Customer2Client customer2Client) {
         this.restTemplate = restTemplate;
         this.loadBalancerClient = loadBalancerClient;
         this.customerClient = customerClient;
+        this.customer2Client = customer2Client;
     }
 
     public static void main(String[] args) {
@@ -50,11 +56,17 @@ public class MovieApplication {
         return "Hello movie! The message from customer is -> " + message;
     }
 
-    @GetMapping("test4Feign")
-    public String test4Feign() {
+    @GetMapping("testCustomer")
+    public String testCustomer() {
         String test = customerClient.getTest();
         String message = customerClient.getMessage();
-        return "Hi! Test(" + test + ") Message(" + message + ") get by feign!";
+        return "Hi! Test(" + test + ") Message(" + message + ") get by spring mvc contract!";
+    }
+
+    @GetMapping("testCustomer2")
+    public String testCustomer2() {
+        String test = customer2Client.test();
+        return "Hi! Test(" + test + ") get by feign contract!";
     }
 
     /**
@@ -69,5 +81,10 @@ public class MovieApplication {
         System.out.println(String.format("%s:%s:%s", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort()));
         System.out.println(String.format("%s:%s:%s", serviceInstance2.getServiceId(), serviceInstance2.getHost(), serviceInstance2.getPort()));
         return "success";
+    }
+
+    @GetMapping("getUser")
+    public User getUser(User user) {
+        return user;
     }
 }

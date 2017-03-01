@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
+ * 客户服务
  * Created by Tony on 28/02/2017.
  */
 public interface CustomerService {

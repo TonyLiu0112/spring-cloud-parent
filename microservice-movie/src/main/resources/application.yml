@@ -22,3 +22,8 @@ microservice-customer2:
   ribbon:
 #    listOfServers: http://localhost:8085,http://localhost:8086
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+# 打印feignClient日志
+logging:
+  level:
+    com.tony.springcloud.feign.Customer2Client: debug

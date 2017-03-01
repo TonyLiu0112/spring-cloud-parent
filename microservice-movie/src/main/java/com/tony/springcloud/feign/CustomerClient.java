@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * Feign client
+ * 基于springmvc默认契约
+ * 配置服务不可用的断路器
+ * 此客户端不支持实现多个接口
  * <p>
  * Created by Tony on 27/02/2017.
  */
