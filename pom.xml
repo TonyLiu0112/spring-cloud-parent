@@ -9,6 +9,7 @@
         <module>microservice-customer</module>
         <module>microservice-movie</module>
         <module>microservice-discovery</module>
+        <module>microservice-zuul</module>
     </modules>
     <packaging>pom</packaging>
 

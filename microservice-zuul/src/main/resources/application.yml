@@ -1,0 +1,31 @@
+server:
+  port: 9081
+spring:
+  application:
+    name: zuul-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+zuul:
+  routes:
+    user1:
+      path: /user1/**
+      serviceId: microservice-customer # 这里的这个是指明服务id
+    user2:
+      path: /user2/eureka-instance
+      url: http://localhost:8082/eureka-instance
+    user3:
+      path: /user3/** # 这里默认访问的是user3服务的请求: http://localhost:8082/user3/user3/** 但是user3并不存在
+    microservice-customer:
+      path: /server-instance
+      stripPrefix: true
+    microservice-customer2: /
+  prefix: /api
+  strip-prefix: false # 剥离前缀,这里的前缀并非指的是上面的api，而是每个微服务可能存在的项目名: http://localhost:8080/demo/xxxxx 这个demo就是前缀
+logging:
+  level:
+    com.netflix: debug

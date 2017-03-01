@@ -1,8 +1,8 @@
 spring:
   application:
-    name: microservice-customer2
+    name: microservice-customer-v2
 server:
-  port: 8085
+  port: 8084
 
 eureka:
   client:
