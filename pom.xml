@@ -10,6 +10,7 @@
         <module>microservice-movie</module>
         <module>microservice-discovery</module>
         <module>microservice-zuul</module>
+        <module>microservice-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
