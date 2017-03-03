@@ -24,10 +24,7 @@ public class CustomerIntegration {
         this.customerClient = customerClient;
     }
 
-    @HystrixCommand(fallbackMethod = "defaultCustomer",
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE")
-            })
+    @HystrixCommand(fallbackMethod = "defaultCustomer")
     public String getCustomer(String message) {
         if (random.nextInt(10) < 8)
             return customerClient.test() + " " + message;

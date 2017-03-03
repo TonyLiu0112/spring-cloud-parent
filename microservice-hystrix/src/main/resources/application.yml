@@ -11,5 +11,5 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 logging:
-  level:
-    com.netflix: debug
+  level: debug
+hystrix.command.default.execution.isolation.thread.interruptOnTimeout: 5000
