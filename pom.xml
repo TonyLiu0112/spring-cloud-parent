@@ -11,6 +11,7 @@
         <module>microservice-discovery</module>
         <module>microservice-zuul</module>
         <module>microservice-hystrix</module>
+        <module>microservice-config</module>
     </modules>
     <packaging>pom</packaging>
 

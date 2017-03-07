@@ -6,7 +6,6 @@ import com.tony.springcloud.feign.CustomerClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -67,6 +66,14 @@ public class MovieApplication {
     public String testCustomer2() {
         String test = customer2Client.test();
         return "Hi! Test(" + test + ") get by feign contract!";
+    }
+
+    //    @Value("${movie.url}")
+    private String url;
+
+    @GetMapping("getProperties")
+    public String getProperties() {
+        return url;
     }
 
     /**
