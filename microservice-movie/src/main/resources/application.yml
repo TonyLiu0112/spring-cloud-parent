@@ -8,6 +8,7 @@ spring:
         service-id: config-center
       name: movie
       profile: dev
+      fail-fast: true
 server:
   port: 8081
 eureka:

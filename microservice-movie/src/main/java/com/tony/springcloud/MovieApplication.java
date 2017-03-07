@@ -4,6 +4,7 @@ import com.tony.springcloud.dto.User;
 import com.tony.springcloud.feign.Customer2Client;
 import com.tony.springcloud.feign.CustomerClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
@@ -68,7 +69,7 @@ public class MovieApplication {
         return "Hi! Test(" + test + ") get by feign contract!";
     }
 
-    //    @Value("${movie.url}")
+    @Value("${movie.user}")
     private String url;
 
     @GetMapping("getProperties")
