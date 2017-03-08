@@ -7,23 +7,19 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Hello world!
- */
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class ConfigApplication {
-
+public class RsaClientApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigApplication.class, args);
+        SpringApplication.run(RsaClientApplication.class, args);
     }
 
     @Value("${haha.user.password}")
-    private String properties;
+    public String password;
 
     @GetMapping("getProperties")
-    public String getProperties() {
-        return properties;
+    public String getPassword() {
+        return password;
     }
 }

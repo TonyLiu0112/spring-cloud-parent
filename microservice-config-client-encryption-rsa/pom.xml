@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microservice-config</artifactId>
+    <artifactId>microservice-config-client-encryption-rsa</artifactId>
     <packaging>jar</packaging>
 
-    <name>microservice-config</name>
+    <name>microservice-config-client-encryption-rsa</name>
     <url>http://maven.apache.org</url>
 
     <properties>

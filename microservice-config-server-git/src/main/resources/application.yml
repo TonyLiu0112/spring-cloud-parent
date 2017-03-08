@@ -1,0 +1,17 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: microservice-config-server-git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/TonyLiu0112/spring-cloud-config-repository
+          search-paths:
+            - dir
+            - demo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8761/eureka/

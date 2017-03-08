@@ -2,14 +2,13 @@ server:
   port: 9091
 spring:
   application:
-    name: microservice-config-client
+    name: microservice-config-client-eureka-encryption-rsa
   cloud:
     config:
+      name: test
       discovery:
         enabled: true
-        service-id: microservice-config-server-git
-      name: demo
-      profile: dev
+        service-id: microservice-config-server-encryption-rsa
 eureka:
   client:
     service-url:

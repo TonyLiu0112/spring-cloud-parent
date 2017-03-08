@@ -14,6 +14,9 @@
         <module>microservice-config</module>
         <module>microservice-config-server-eureka-authenticating</module>
         <module>microservice-config-client-eureka-authenticating</module>
+        <module>microservice-config-server-encryption-rsa</module>
+        <module>microservice-config-client-encryption-rsa</module>
+        <module>microservice-config-server-git</module>
     </modules>
     <packaging>pom</packaging>
 
