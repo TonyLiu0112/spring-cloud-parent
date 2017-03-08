@@ -1,0 +1,17 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: microservice-config-client-eureka-authenticating
+  cloud:
+    config:
+      name: test
+      discovery:
+        enabled: true
+        service-id: microservice-config-server-eureka-authenticating
+      username: admin
+      password: admin
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:8761/eureka/

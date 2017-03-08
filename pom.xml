@@ -12,6 +12,8 @@
         <module>microservice-zuul</module>
         <module>microservice-hystrix</module>
         <module>microservice-config</module>
+        <module>microservice-config-server-eureka-authenticating</module>
+        <module>microservice-config-client-eureka-authenticating</module>
     </modules>
     <packaging>pom</packaging>
 
