@@ -17,6 +17,7 @@
         <module>microservice-config-server-encryption-rsa</module>
         <module>microservice-config-client-encryption-rsa</module>
         <module>microservice-config-server-git</module>
+        <module>microservice-config-client-refresh-bus</module>
     </modules>
     <packaging>pom</packaging>
 

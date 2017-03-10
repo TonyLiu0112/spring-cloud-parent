@@ -11,6 +11,9 @@ spring:
           search-paths:
             - dir
             - demo
+    bus:
+      trace:
+        enabled: true
 eureka:
   client:
     service-url:
