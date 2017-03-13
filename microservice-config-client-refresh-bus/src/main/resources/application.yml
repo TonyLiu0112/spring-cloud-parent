@@ -6,12 +6,15 @@ spring:
     index: ${random.value}
   cloud:
     config:
-#      discovery:
-#        enabled: true
-#        service-id: microservice-config-server-git
+      discovery:
+        enabled: true
+        service-id: microservice-config-server-git
       name: demo
       profile: dev
-      uri: http://localhost:8888
+    bus:
+      trace:
+        enabled: true
+      destination: springCloudBus
   rabbitmq:
     host: localhost
     port: 5672
